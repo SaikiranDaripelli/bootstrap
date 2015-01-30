@@ -45,6 +45,9 @@ function TabsetCtrl($scope, $element) {
     if (tab.active && tabs.length > 1) {
       //If this is the last tab, select the previous tab. else, the next tab.
       var newActiveIndex = index == tabs.length - 1 ? index - 1 : index + 1;
+      if(tabs[newActiveIndex].disabled){
+        newActiveIndex=newActiveIndex-1;
+      }
       ctrl.select(tabs[newActiveIndex]);
     }
     tabs.splice(index, 1);
